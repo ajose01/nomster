@@ -49,4 +49,6 @@ gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'simple_form'
 gem 'devise', '>= 3.2.4'
+gem "geocoder"
+gem "figaro"
 
