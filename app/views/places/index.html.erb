@@ -10,6 +10,7 @@
 		<% if place.user.present? %>
 		<small><%= place.user.email %></small>
 		<% end %>
+
      <% if place.comments.present? %>
 		<div class="col-xs-12">
 		<blockquote>
@@ -21,6 +22,13 @@
 		</blockquote>
 		</div>
 	 <% end %>
+
+	 <% if place.photos.last.picture.present? %>
+	 	<div class="col-xs-10 col-xs-offset-1">
+			<%= image_tag place.photos.last.picture, :class => 'img-responsive' %>
+		</div>   
+	 <% end %>
+
 
 	</div>
 
