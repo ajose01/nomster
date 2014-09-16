@@ -51,4 +51,6 @@ gem 'simple_form'
 gem 'devise', '>= 3.2.4'
 gem "geocoder"
 gem "figaro"
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
 

@@ -37,12 +37,18 @@
 			<%= link_to 'Destroy', place_path(@place), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this?'},:class => 'btn btn-danger' %>
 		<% end %>
 	</div>
+
+<% @place.photos.each do |photo| %>
+			<%= image_tag photo.picture %>
+			<%= photo.caption %>
+	
+<% end %>
+
+
 </div>
+
+
 <div class='clear'></div>
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -87,5 +93,15 @@
 		</blockquote>
 	</div>
 <% end %>
+
+<!-- View Photo Form -->
+<div class="clear"></div>
+<%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
+<%= f.input :picture %>
+<%= f.input :caption %>
+<%= f.submit "Add a caption", :class => 'bn btn-primary' %>
+<% end %> 
+
+
 
 
