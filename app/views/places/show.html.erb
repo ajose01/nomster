@@ -43,7 +43,9 @@
 
 <div class='clear'></div>
 	<% @place.photos.each do |photo| %>
+				<%= link_to photo.picture.to_s, :class => 'fancybox', :rel => 'gallery1' do %>
 				<%= image_tag photo.picture, :class => 'img-responsive' %><br />
+				<% end %>
 				<%= photo.caption %><br />
 	<% end %>
 
@@ -131,7 +133,14 @@
 
 <!-- View Photo Form -->
 
+<div class="clear"></div>
+<%= link_to "Show mah Fancybox!", "#hello", class: "fancybox" %>
 
+<div style="display:none;">
+  <div id="hello">
+  Hello world!
+  </div>
+</div>
 
 
 
