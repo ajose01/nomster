@@ -54,3 +54,4 @@ gem "figaro"
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem 'fancybox2-rails', '~> 0.2.8'
+gem 'httparty'
