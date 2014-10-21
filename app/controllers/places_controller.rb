@@ -1,5 +1,7 @@
 class PlacesController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+	include HTTParty
+
 	def index
 		@places = Place
 		.all
@@ -55,6 +57,21 @@ class PlacesController < ApplicationController
 		@place.destroy
 		redirect_to root_path
 	end
+
+	def google
+		response = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=tacos+in+Los+Angeles&maxprice=1&types=food&key=#{ENV["PLACES_API"]}")
+		@token = response["next_page_token"]
+		@google = response.parsed_response["results"]
+		sleep 3
+		@google2 = google2
+	end
+
+	def google2
+			nextresponse = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=tacos+in+Los+Angeles&maxprice=1&types=food&key=#{ENV["PLACES_API"]}&pagetoken=#{@token}")
+			google = nextresponse.parsed_response["results"]
+	end
+
+
 
 	private
 

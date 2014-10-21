@@ -1,6 +1,8 @@
 Nomster::Application.routes.draw do
   devise_for :users
   root 'places#index'
+  get 'google' => 'places#google'
+
     resources :places do
       resources :comments, :only => :create
       resources :photos, :only => :create
